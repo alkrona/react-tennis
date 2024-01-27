@@ -5,9 +5,90 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #0B2434;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.App { 
+  display:grid;
+  grid-template-rows:0.8fr 1fr 0.3fr;
+  
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  margin:auto;
+  width: 300px;
+  height: 300px;
+  padding: 33.28px 34.56px 33.92px 34.56px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  
+  border-radius: 10px;
+  background:#F5F5F5;
+}
+.Information>h1{
+  color: #2B283A;
+text-align: center;
+font-family: Karla;
+font-size: 25.6px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: -0.768px;
+}
+.Information>h3{
+  color: #4A4E74;
+text-align: center;
+font-family: Inter;
+font-size: 13.107px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -0.393px;
+}
+.DieArray{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+column-gap: 40px;
+row-gap: 2em;
+}
+.Die>button{
+  width: 35.84px;
+ height: 35.84px;
+ flex-shrink: 0;
+ background:#FFFFFF ; 
+ border-radius: 10px;
+ color: #2B283A;
+ text-align: center;
+ font-family: Karla;
+ font-size: 20.589px;
+ font-style: normal;
+ font-weight: 700;
+ line-height: normal;
+ 
+}
+.ResetButton>button{
+  position:absolute;
+  left:50%;
+  transform: translate(-50%);
+  width: 92.16px;
+height: 35.84px;
+flex-shrink: 0;
+background: #5035FF;
+color: #FFF;
+
+text-align: center;
+font-family: Karla;
+font-size: 16.384px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.Clicked{
+  background: #59E391;
 }

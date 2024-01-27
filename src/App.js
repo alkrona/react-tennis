@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Die from "./components/Die";
 
 function App() {
+  const dieValues_temp = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const [dieValues, setDieValues] = useState(dieValues_temp.map(() => {
+    return Math.floor(Math.random() * (9 - 1 + 1)) + 1;
+  }));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="Information">
+        <h1>Tenzies</h1>
+        <h3>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</h3>
+      </div>
+      
+    <div className="DieArray">
+      {dieValues.map(die_val => {
+        return <Die value={die_val} key={die_val} />;
+      })}
+    </div>
+  
+      <div className="ResetButton">
+      <button>Roll</button>
+      </div>
     </div>
   );
 }
