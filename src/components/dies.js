@@ -1,4 +1,4 @@
-export default[
+ const arr =[
     {
         "id":1 ,
         "value":1,
@@ -70,3 +70,4 @@ export default[
 
     }
 ]
+export default arr
