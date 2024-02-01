@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Die from "./components/Die";
 
+import Conf from "./components/Confet";
 import dies from "./components/dies";
 function App() {
-  const dieValues_temp = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  const [ wonGame,setWonGame]= useState(false)
   const [dieValues, setDieValues] = useState(dies)
   function resetAll(){
     setDieValues(prevValue=>{
@@ -11,6 +12,7 @@ function App() {
         return {...currentValue,value:Math.floor(Math.random() * (9 - 1 + 1)) + 1,isOn:false}
       })
     })
+    setWonGame(false)
   }
   function handleResetButton(props){
     console.log("handle reset button working")
@@ -19,6 +21,18 @@ function App() {
         return currentValue.isOn ? currentValue:{...currentValue, value:Math.floor(Math.random() * (9 - 1 + 1)) + 1}
       });
     });
+    const potential_winner = dieValues[0].value
+    let is_winner = false
+    for (let i =0;i<dieValues.length;i++){
+      if(dieValues[i].value !== potential_winner ){
+        is_winner=true
+        break;
+      }
+    }
+    if(!is_winner){
+      console.log("game won")
+      setWonGame(true)
+    }
   }
   function handleClick(id) {
     
@@ -29,7 +43,9 @@ function App() {
     });
     
   }
-  
+  useEffect(()=>{
+    resetAll();
+  },[]);
 
 
   return (
@@ -46,7 +62,8 @@ function App() {
     </div>
   
       <div className="ResetButton">
-      <button onClick={handleResetButton}>Roll</button>
+      {wonGame?<button onClick={resetAll}>Reset</button>:<button onClick={handleResetButton}>Roll</button>}
+      {wonGame&& <Conf/>}
       </div>
     </div>
   );

@@ -64,7 +64,7 @@ export default[
     },
     {
         "id":10 ,
-        "value":1,
+        "value":2 ,
         "isOn":false
 
 
